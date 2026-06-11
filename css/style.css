@@ -4,7 +4,7 @@
    ============================================================ */
 
 /* ---------- Reset & Base ---------- */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; cursor: none !important; }
 
 :root {
   --ink:       #0d0d0d;
