@@ -1,5 +1,5 @@
 /* ============================================================
-   PORTFOLIO â€” STYLE.CSS
+   PORTFOLIO — STYLE.CSS
    Minimal, editorial, premium. Light mode first.
    ============================================================ */
 
@@ -44,7 +44,7 @@ body {
 @media (pointer: coarse) { body { cursor: auto; } }
 
 img { display: block; width: 100%; height: 100%; object-fit: cover; }
-a { text-decoration: none; color: inherit; }
+a { text-decoration: none; color: inherit; cursor: none; }
 button { font: inherit; border: none; background: none; cursor: none; }
 
 /* ---------- Custom Cursor ---------- */
@@ -491,7 +491,7 @@ button { font: inherit; border: none; background: none; cursor: none; }
   background: linear-gradient(135deg, hsla(var(--hue,220),30%,96%,0.8) 0%, transparent 60%);
 }
 .project-img-placeholder::after {
-  content: 'â†’ Add your image here';
+  content: '→ Add your image here';
   position: absolute;
   inset: 0;
   display: flex;
@@ -622,7 +622,7 @@ button { font: inherit; border: none; background: none; cursor: none; }
   overflow: hidden;
 }
 .about-img-placeholder::after {
-  content: 'â†’ Add your photo here';
+  content: '→ Add your photo here';
   position: absolute;
   inset: 0;
   display: flex;
