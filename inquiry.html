@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Start a project — tell me about your vision." />
+  <title>Start a Project — Heleck Kurian</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/inquiry.css" />
+</head>
+<body class="inquiry-page">
+
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+
+  <!-- Nav -->
+  <nav class="nav scrolled" id="nav">
+    <a href="index.html" class="nav-logo" aria-label="Home">
+      <span class="logo-mark">●</span>
+      <span class="logo-name">Heleck Kurian</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html#work" class="nav-link">Work</a>
+      <a href="index.html#about" class="nav-link">About</a>
+    </div>
+    <button class="nav-menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <a href="index.html" class="mobile-link">Home</a>
+    <a href="index.html#work" class="mobile-link">Work</a>
+    <a href="index.html#about" class="mobile-link">About</a>
+  </div>
+
+  <!-- Page Header -->
+  <header class="inq-header">
+    <div class="container">
+      <a href="index.html" class="inq-back reveal-up">← Back</a>
+      <p class="section-eyebrow reveal-up delay-1"><span class="dot"></span> Project Inquiry</p>
+      <h1 class="inq-title reveal-up delay-2">
+        Let's build something<br><em>worth remembering.</em>
+      </h1>
+      <p class="inq-sub reveal-up delay-3">
+        Tell me about your project. The more detail you share, the better I can assess fit and come back to you with a clear picture of how we'd work together.
+      </p>
+    </div>
+  </header>
+
+  <!-- Form -->
+  <main class="inq-main">
+    <div class="container inq-layout">
+
+      <!-- Sticky progress sidebar -->
+      <aside class="inq-progress" aria-label="Form progress">
+        <div class="progress-track">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <nav class="progress-steps" aria-label="Sections">
+          <button class="ps-item active" data-section="0">Overview</button>
+          <button class="ps-item" data-section="1">Design</button>
+          <button class="ps-item" data-section="2">Content</button>
+          <button class="ps-item" data-section="3">Technical</button>
+          <button class="ps-item" data-section="4">Timeline &amp; Budget</button>
+        </nav>
+      </aside>
+
+      <!-- Form body -->
+      <form class="inq-form" id="inquiryForm" novalidate>
+
+        <!-- Email -->
+        <div class="inq-email-wrap reveal-up">
+          <label class="inq-label" for="email">
+            Your email address <span class="req" aria-label="required">*</span>
+          </label>
+          <input
+            class="inq-input inq-input-email"
+            type="email"
+            id="email"
+            name="email"
+            placeholder="hello@yourcompany.com"
+            required
+            autocomplete="email"
+          />
+          <p class="inq-helper">I'll reply within 48 hours.</p>
+        </div>
+
+        <!-- ── Section 0: Overview ── -->
+        <section class="inq-section" data-section="0">
+          <div class="inq-section-label">
+            <span class="section-num">01</span>
+            <span class="section-name">Project Overview</span>
+          </div>
+
+          <div class="inq-field reveal-up">
+            <label class="inq-label" for="q1">
+              What is the primary goal of this website?
+              <span class="inq-hint">Sell products, generate leads, brand awareness, share information…</span>
+            </label>
+            <textarea class="inq-textarea" id="q1" name="goal" rows="4" placeholder="e.g. We want to generate qualified leads for our B2B consulting service…"></textarea>
+          </div>
+
+          <div class="inq-field reveal-up delay-1">
+            <label class="inq-label" for="q2">
+              Who is your target audience?
+              <span class="inq-hint">Age, lifestyle, profession, and tech-savviness all influence tone, layout, and visual style.</span>
+            </label>
+            <textarea class="inq-textarea" id="q2" name="audience" rows="4" placeholder="e.g. Creative directors aged 30–50, design-savvy, primarily on desktop…"></textarea>
+          </div>
+
+          <div class="inq-field reveal-up delay-2">
+            <label class="inq-label" for="q3">
+              What websites do you like, and what do you like about them?
+              <span class="inq-hint">Getting reference points fast-tracks alignment on aesthetic direction.</span>
+            </label>
+            <textarea class="inq-textarea" id="q3" name="likes" rows="4" placeholder="e.g. linear.app — love the dark mode, clean typography, and confident spacing…"></textarea>
+          </div>
+
+          <div class="inq-field reveal-up delay-3">
+            <label class="inq-label" for="q4">
+              What websites do you dislike, and why?
+              <span class="inq-hint">Knowing what to avoid is just as valuable as knowing what to aim for.</span>
+            </label>
+            <textarea class="inq-textarea" id="q4" name="dislikes" rows="4" placeholder="e.g. Sites that feel cluttered with too many animations, pop-ups, or low contrast…"></textarea>
+          </div>
+        </section>
+
+        <!-- ── Section 1: Design & Brand ── -->
+        <section class="inq-section" data-section="1">
+          <div class="inq-section-label">
+            <span class="section-num">02</span>
+            <span class="section-name">Design &amp; Brand</span>
+          </div>
+
+          <div class="inq-field reveal-up">
+            <label class="inq-label" for="q5">
+              What pages or sections do you need?
+              <span class="inq-hint">Home, About, Services, Portfolio, Blog, Contact, etc.</span>
+            </label>
+            <textarea class="inq-textarea" id="q5" name="pages" rows="4" placeholder="e.g. Home, About, Case Studies (6), Contact — that's it, clean and focused…"></textarea>
+          </div>
+
+          <div class="inq-field reveal-up delay-1">
+            <label class="inq-label">
+              Do you have existing branding?
+              <span class="inq-hint">Logo, color palette, fonts, brand guidelines.</span>
+            </label>
+            <div class="inq-radio-group" role="radiogroup" aria-label="Existing branding">
+              <label class="inq-radio">
+                <input type="radio" name="branding" value="full" />
+                <span class="radio-box">
+                  <span class="radio-title">Fully established</span>
+                  <span class="radio-desc">Logo, colors, fonts, guidelines — all ready</span>
+                </span>
+              </label>
+              <label class="inq-radio">
+                <input type="radio" name="branding" value="partial" />
+                <span class="radio-box">
+                  <span class="radio-title">Partially done</span>
+                  <span class="radio-desc">Some assets exist but need refinement or gaps to fill</span>
+                </span>
+              </label>
+              <label class="inq-radio">
+                <input type="radio" name="branding" value="none" />
+                <span class="radio-box">
+                  <span class="radio-title">Starting fresh</span>
+                  <span class="radio-desc">No existing brand — open to direction</span>
+                </span>
+              </label>
+            </div>
+          </div>
+        </section>
+
+        <!-- ── Section 2: Content & Competition ── -->
+        <section class="inq-section" data-section="2">
+          <div class="inq-section-label">
+            <span class="section-num">03</span>
+            <span class="section-name">Content &amp; Competition</span>
+          </div>
+
+          <div class="inq-field reveal-up">
+            <label class="inq-label" for="q7">
+              What content do you already have, and what still needs to be created?
+              <span class="inq-hint">Copy, photos, and videos can be major bottlenecks if not planned early.</span>
+            </label>
+            <textarea class="inq-textarea" id="q7" name="content" rows="4" placeholder="e.g. We have professional photography and a rough copy draft. Need help with final copy and video…"></textarea>
+          </div>
+
+          <div class="inq-field reveal-up delay-1">
+            <label class="inq-label" for="q8">
+              Who are your main competitors, and how do you want to stand out?
+            </label>
+            <textarea class="inq-textarea" id="q8" name="competitors" rows="4" placeholder="e.g. Competitors are X and Y — they feel corporate and cold. We want to feel human and premium…"></textarea>
+          </div>
+        </section>
+
+        <!-- ── Section 3: Technical ── -->
+        <section class="inq-section" data-section="3">
+          <div class="inq-section-label">
+            <span class="section-num">04</span>
+            <span class="section-name">Technical &amp; Success</span>
+          </div>
+
+          <div class="inq-field reveal-up">
+            <label class="inq-label" for="q9">
+              What features or functionality do you need?
+              <span class="inq-hint">Contact forms, e-commerce, booking system, social feeds, CMS, etc.</span>
+            </label>
+            <textarea class="inq-textarea" id="q9" name="features" rows="4" placeholder="e.g. A contact form, CMS so we can update blog posts ourselves, and an email capture…"></textarea>
+          </div>
+
+          <div class="inq-field reveal-up delay-1">
+            <label class="inq-label" for="q10">
+              What does success look like, and how will you measure it?
+            </label>
+            <textarea class="inq-textarea" id="q10" name="success" rows="4" placeholder="e.g. 50 qualified leads per month, measured via form submissions and Google Analytics…"></textarea>
+          </div>
+        </section>
+
+        <!-- ── Section 4: Timeline & Budget (interactive) ── -->
+        <section class="inq-section" data-section="4">
+          <div class="inq-section-label">
+            <span class="section-num">05</span>
+            <span class="section-name">Timeline &amp; Budget</span>
+          </div>
+
+          <!-- Timeline Picker -->
+          <div class="inq-field reveal-up">
+            <label class="inq-label">
+              What is your timeline?
+              <span class="inq-hint">Select the option that best fits. You can add detail below.</span>
+            </label>
+
+            <div class="timeline-picker" role="radiogroup" aria-label="Project timeline">
+              <label class="tl-option" data-value="urgent">
+                <input type="radio" name="timeline" value="urgent" />
+                <div class="tl-card">
+                  <div class="tl-icon">⚡</div>
+                  <div class="tl-label">Under 4 weeks</div>
+                  <div class="tl-desc">Urgent — hard deadline approaching</div>
+                  <div class="tl-bar"><div class="tl-bar-fill" style="width:20%"></div></div>
+                </div>
+              </label>
+              <label class="tl-option" data-value="1-3m">
+                <input type="radio" name="timeline" value="1-3m" />
+                <div class="tl-card">
+                  <div class="tl-icon">📅</div>
+                  <div class="tl-label">1 – 3 months</div>
+                  <div class="tl-desc">A specific launch date in sight</div>
+                  <div class="tl-bar"><div class="tl-bar-fill" style="width:45%"></div></div>
+                </div>
+              </label>
+              <label class="tl-option" data-value="3-6m">
+                <input type="radio" name="timeline" value="3-6m" checked />
+                <div class="tl-card">
+                  <div class="tl-icon">🗓</div>
+                  <div class="tl-label">3 – 6 months</div>
+                  <div class="tl-desc">Comfortable pace, room to get it right</div>
+                  <div class="tl-bar"><div class="tl-bar-fill" style="width:70%"></div></div>
+                </div>
+              </label>
+              <label class="tl-option" data-value="flexible">
+                <input type="radio" name="timeline" value="flexible" />
+                <div class="tl-card">
+                  <div class="tl-icon">🌿</div>
+                  <div class="tl-label">Flexible</div>
+                  <div class="tl-desc">No fixed date — quality over speed</div>
+                  <div class="tl-bar"><div class="tl-bar-fill" style="width:100%"></div></div>
+                </div>
+              </label>
+            </div>
+
+            <textarea class="inq-textarea inq-textarea-sm" name="timeline_notes" rows="2" placeholder="Any hard deadline, launch event, or date you cannot miss?"></textarea>
+          </div>
+
+          <!-- Budget Slider -->
+          <div class="inq-field reveal-up delay-1">
+            <label class="inq-label" for="budgetRange">
+              What is your budget range?
+              <span class="inq-hint">Have you worked with a designer before? This helps me scope the work honestly.</span>
+            </label>
+
+            <div class="budget-widget">
+              <div class="budget-display">
+                <span class="budget-amount" id="budgetAmount">$10,000</span>
+                <span class="budget-label" id="budgetLabel">Mid-range project</span>
+              </div>
+              <div class="budget-track-wrap">
+                <input
+                  type="range"
+                  class="budget-range"
+                  id="budgetRange"
+                  name="budget"
+                  min="0"
+                  max="6"
+                  step="1"
+                  value="3"
+                  aria-label="Budget range"
+                />
+                <div class="budget-markers">
+                  <span>$2k</span>
+                  <span>$5k</span>
+                  <span>$10k</span>
+                  <span>$20k</span>
+                  <span>$35k</span>
+                  <span>$50k</span>
+                  <span>$50k+</span>
+                </div>
+              </div>
+              <div class="budget-tiers">
+                <div class="budget-tier" data-tier="0">
+                  <div class="tier-dot"></div>
+                  <span>Starter</span>
+                </div>
+                <div class="budget-tier" data-tier="1">
+                  <div class="tier-dot"></div>
+                  <span>Essential</span>
+                </div>
+                <div class="budget-tier" data-tier="2">
+                  <div class="tier-dot"></div>
+                  <span>Professional</span>
+                </div>
+                <div class="budget-tier active" data-tier="3">
+                  <div class="tier-dot"></div>
+                  <span>Mid-range</span>
+                </div>
+                <div class="budget-tier" data-tier="4">
+                  <div class="tier-dot"></div>
+                  <span>Premium</span>
+                </div>
+                <div class="budget-tier" data-tier="5">
+                  <div class="tier-dot"></div>
+                  <span>Enterprise</span>
+                </div>
+                <div class="budget-tier" data-tier="6">
+                  <div class="tier-dot"></div>
+                  <span>Custom</span>
+                </div>
+              </div>
+              <div class="budget-scope" id="budgetScope">
+                Typically covers a multi-page website with custom design, responsive build, and basic CMS integration.
+              </div>
+            </div>
+
+            <div class="inq-field" style="margin-top:20px; margin-bottom:0">
+              <label class="inq-label inq-label-sm" for="priorExp">
+                Have you worked with a designer before?
+              </label>
+              <div class="inq-radio-group inq-radio-group-inline" role="radiogroup">
+                <label class="inq-radio">
+                  <input type="radio" name="prior_exp" value="yes" />
+                  <span class="radio-box radio-box-sm">Yes</span>
+                </label>
+                <label class="inq-radio">
+                  <input type="radio" name="prior_exp" value="no" />
+                  <span class="radio-box radio-box-sm">No, first time</span>
+                </label>
+                <label class="inq-radio">
+                  <input type="radio" name="prior_exp" value="agency" />
+                  <span class="radio-box radio-box-sm">Worked with agencies</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Anything else -->
+          <div class="inq-field reveal-up delay-2">
+            <label class="inq-label" for="qExtra">
+              Anything else you'd like me to know?
+              <span class="inq-hint">Constraints, sensitivities, a gut feeling about the project — anything goes.</span>
+            </label>
+            <textarea class="inq-textarea" id="qExtra" name="extra" rows="4" placeholder="Open floor — share whatever feels relevant…"></textarea>
+          </div>
+        </section>
+
+        <!-- Submit -->
+        <div class="inq-submit reveal-up">
+          <button type="submit" class="btn btn-primary inq-submit-btn" id="submitBtn">
+            <span class="submit-text">Send Inquiry</span>
+            <span class="submit-arrow">→</span>
+          </button>
+          <p class="inq-privacy">No commitments. I'll review your brief and respond within 48 hours.</p>
+        </div>
+
+        <!-- Success state -->
+        <div class="inq-success" id="successMsg" aria-live="polite" aria-hidden="true">
+          <div class="success-icon">✓</div>
+          <h2 class="success-title">Got it — thank you.</h2>
+          <p class="success-body">I've received your inquiry and will be in touch within 48 hours. In the meantime, feel free to browse the work.</p>
+          <a href="index.html#work" class="btn btn-ghost" style="margin-top:24px">View Work</a>
+        </div>
+
+      </form>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="footer-name">Heleck Kurian</span>
+      <span class="footer-copy">© 2026 — All rights reserved</span>
+      <a href="index.html" class="footer-back">Back to portfolio ↗</a>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/inquiry.js"></script>
+</body>
+</html>
