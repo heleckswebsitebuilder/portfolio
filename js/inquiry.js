@@ -125,21 +125,52 @@ const submitBtn  = document.getElementById('submitBtn');
 const successMsg = document.getElementById('successMsg');
 
 if (form) {
-  form.addEventListener('submit', e => {
+  form.addEventListener('submit', async e => {
     e.preventDefault();
+
     if (submitBtn) {
       submitBtn.querySelector('.submit-text').textContent = 'Sending…';
       submitBtn.disabled = true;
     }
-    setTimeout(() => {
-      form.querySelectorAll('.inq-field, .inq-email-wrap, .inq-submit').forEach(el => {
-        el.style.display = 'none';
+
+    // Collect all form data including pill selections
+    const data = new FormData(form);
+
+    // Add selected pills (goals, pages, features, branding)
+    ['goals', 'pages', 'features', 'branding'].forEach(group => {
+      const selected = Array.from(document.querySelectorAll(`[data-group="${group}"].selected`))
+        .map(el => el.textContent.trim());
+      if (selected.length) data.set(group, selected.join(', '));
+    });
+
+    // Add timeline and budget
+    const timeline = document.querySelector('.tl-option input:checked');
+    if (timeline) data.set('timeline', timeline.value);
+    data.set('budget', document.getElementById('budgetAmount')?.textContent || '');
+
+    try {
+      const res = await fetch('https://formspree.io/f/xaqzpelr', {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
       });
-      if (successMsg) {
-        successMsg.classList.add('show');
-        successMsg.setAttribute('aria-hidden', 'false');
-        successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+      if (res.ok) {
+        form.querySelectorAll('.inq-field, .inq-email-wrap, .inq-submit').forEach(el => {
+          el.style.display = 'none';
+        });
+        if (successMsg) {
+          successMsg.classList.add('show');
+          successMsg.setAttribute('aria-hidden', 'false');
+          successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      } else {
+        submitBtn.querySelector('.submit-text').textContent = 'Something went wrong — try again';
+        submitBtn.disabled = false;
       }
-    }, 600);
+    } catch {
+      submitBtn.querySelector('.submit-text').textContent = 'Something went wrong — try again';
+      submitBtn.disabled = false;
+    }
   });
 }
