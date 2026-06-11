@@ -6,13 +6,48 @@
 
 /* ---------- Budget Slider ---------- */
 const budgetData = [
-  { amount: '$2,000',  label: 'Starter project',     scope: 'Best for a simple landing page or one-pager with clean design and basic contact form.' },
-  { amount: '$5,000',  label: 'Essential build',      scope: 'A multi-page website with custom design, responsive layout, and light interactivity.' },
-  { amount: '$10,000', label: 'Mid-range project',    scope: 'Typically covers a multi-page website with custom design, responsive build, and basic CMS integration.' },
-  { amount: '$20,000', label: 'Professional scope',   scope: 'Full brand + web system — custom design, motion, CMS, and a polished component library.' },
-  { amount: '$35,000', label: 'Premium engagement',   scope: 'A comprehensive build with strategy, identity, multi-platform design, and end-to-end development.' },
-  { amount: '$50,000', label: 'Enterprise level',     scope: 'Large-scale digital product with design systems, complex functionality, and long-term support.' },
-  { amount: '$50,000+', label: 'Custom engagement',   scope: 'Fully bespoke — let\'s talk about scope, team structure, and what success looks like for you.' },
+  {
+    amount: '$250',
+    label: 'Starter',
+    scope: "You're getting silky smooth animations, custom design, and a site that looks like it cost 20x more. This is the best $250 you'll ever spend on your brand.",
+    cta: true
+  },
+  {
+    amount: '$500',
+    label: 'Essential',
+    scope: 'Multi-page site with custom design, scroll animations, mobile-optimised layout, and a contact form. Everything your brand needs to make a real first impression.',
+    cta: true
+  },
+  {
+    amount: '$1,000',
+    label: 'Professional',
+    scope: 'A polished, fully custom website with advanced interactions, refined typography, and a design system built to grow with you. This is where brands start getting taken seriously.',
+    cta: true
+  },
+  {
+    amount: '$2,000',
+    label: 'Mid-Range',
+    scope: 'Full brand + web — custom identity, motion design, CMS integration, and a component library your team can actually use. Built to scale.',
+    cta: true
+  },
+  {
+    amount: '$3,000',
+    label: 'Premium',
+    scope: 'A comprehensive digital presence — strategy, identity, multi-page build, micro-interactions, and end-to-end development. For brands that refuse to blend in.',
+    cta: true
+  },
+  {
+    amount: '$5,000',
+    label: 'Enterprise',
+    scope: 'The full package. Brand strategy, design system, complex functionality, e-commerce or booking, and long-term support. No corners cut, no compromises.',
+    cta: true
+  },
+  {
+    amount: '$5,000+',
+    label: 'Custom',
+    scope: "You've got something big in mind. Let's talk scope, team structure, and what success looks like. Submit the inquiry and I'll reach out to build something made entirely for you.",
+    cta: false
+  },
 ];
 
 const rangeInput   = document.getElementById('budgetRange');
@@ -27,9 +62,24 @@ function updateBudget(val) {
   labelEl.textContent  = budgetData[v].label;
   scopeEl.textContent  = budgetData[v].scope;
   tierEls.forEach((t, i) => t.classList.toggle('active', i === v));
-  // Update track fill
   const pct = (v / 6) * 100;
   rangeInput.style.backgroundSize = `${pct}% 100%`;
+
+  // Show/hide checkout button
+  let checkoutBtn = document.getElementById('checkoutBtn');
+  if (!checkoutBtn) {
+    checkoutBtn = document.createElement('a');
+    checkoutBtn.id = 'checkoutBtn';
+    checkoutBtn.className = 'checkout-btn';
+    scopeEl.parentNode.insertBefore(checkoutBtn, scopeEl.nextSibling);
+  }
+  if (budgetData[v].cta) {
+    checkoutBtn.textContent = `Get Started — ${budgetData[v].amount} →`;
+    checkoutBtn.href = `checkout.html?package=${encodeURIComponent(budgetData[v].label)}&price=${encodeURIComponent(budgetData[v].amount)}`;
+    checkoutBtn.style.display = 'inline-flex';
+  } else {
+    checkoutBtn.style.display = 'none';
+  }
 }
 
 if (rangeInput) {
