@@ -151,6 +151,7 @@
 .radio-desc { font-size: 13px; color: var(--ink-3); }
 .inq-radio input:checked + .radio-box .radio-title,
 .inq-radio input:checked + .radio-box .radio-desc { color: white; }
+.inq-radio input:checked + .radio-box-sm { color: white; }
 
 /* Timeline picker */
 .timeline-picker {
@@ -269,3 +270,19 @@
 }
 .success-body { font-size: 15px; color: var(--ink-2); line-height: 1.7; }
 .req { color: var(--ink-2); }
+
+/* Checkout button inside budget widget */
+.checkout-btn {
+  display: none; margin-top: 16px;
+  background: var(--ink); color: white;
+  padding: 13px 24px; border-radius: 100px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px; font-weight: 500;
+  text-decoration: none; letter-spacing: -0.01em;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.checkout-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(13,13,13,0.2);
+  color: white;
+}
