@@ -735,7 +735,6 @@ button { font: inherit; border: none; background: none; cursor: none; }
   margin-bottom: 40px;
   transition: border-color 0.3s, color 0.3s;
   position: relative;
-  overflow: hidden;
 }
 .contact-email::before {
   content: '';
