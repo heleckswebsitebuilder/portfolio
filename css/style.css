@@ -4,7 +4,7 @@
    ============================================================ */
 
 /* ---------- Reset & Base ---------- */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; cursor: none !important; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
   --ink:       #0d0d0d;
@@ -44,7 +44,7 @@ body {
 @media (pointer: coarse) { body { cursor: auto; } }
 
 img { display: block; width: 100%; height: 100%; object-fit: cover; }
-a { text-decoration: none; color: inherit; cursor: none; }
+a { text-decoration: none; color: inherit; }
 button { font: inherit; border: none; background: none; cursor: none; }
 
 /* ---------- Custom Cursor ---------- */
@@ -811,6 +811,7 @@ button { font: inherit; border: none; background: none; cursor: none; }
   .nav-menu-btn { display: flex; }
   .hero-stats { display: none; }
   .hero-scroll-hint { display: none; }
+  .hero-container { padding-top: clamp(24px, 5vh, 48px); padding-bottom: clamp(40px, 8vh, 80px); }
   .about-container { grid-template-columns: 1fr; }
   .about-img-wrap { order: -1; }
   .about-img-badge { bottom: 12px; right: 12px; width: 80px; height: 80px; font-size: 10px; }
